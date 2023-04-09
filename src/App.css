@@ -1,38 +1,172 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0px;
+  background-color: rgb(24, 21, 21);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.sections {
+  width: 100%;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  margin: 50px;
+}
+
+.firstSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.firstSection .title span {
+  font-size: larger;
   color: white;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.firstSection .settings {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.settings .menu, .social, .general {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  gap: 10px;
+}
+
+.secondSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.secondSection .options {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.secondSection .filmImage {
+  position: relative;
+  margin-top: 20px;
+}
+
+.filmImage .groupElement {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: absolute;
+  top: 55%;
+  left: 5%;
+  transform: 'translate(-50%, -50%)';
+}
+
+.filmImage img {
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.filmImage .filmName {
+  font-size: 2.5em;
+  color: white;
+  font-weight: bold;
+}
+
+.filmImage .filmPlot {
+  color: white;
+  font-size: large;
+}
+
+.filmImage .btnWatch {
+  background-color: rgb(211, 76, 13);
+  border: 1px solid rgb(211, 76, 13);
+  color: white;
+  padding: 13px 30px;
+  border-radius: 10px;
+  font-size: large;
+}
+
+.filmImage .btnPlus {
+  font-size: xx-large;
+  width: 50px;
+  border-radius: 12px;
+  background-color: rgba(128, 128, 128, 0.411);
+  height: 50px;
+  color: white;
+  border: 1px solid rgba(128, 128, 128, 0.411);
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.thirdSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.thirdSection form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.thirdSection form input {
+  padding-left: 2rem;
+  padding: 10px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid rgba(71, 69, 69, 0.459);
+  font-size: large;
+  border-radius: 20px;
+}
+
+.thirdSection form input[type="text"]::placeholder {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.inputGroup {
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+}
+
+.bi-search {
+  font-size: larger;
 }
