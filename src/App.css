@@ -4,169 +4,161 @@
 
 body {
   margin: 0px;
-  background-color: rgb(24, 21, 21);
 }
 
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.sections {
-  width: 100%;
-  display: flex;
-  margin-top: 50px;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: row;
-  margin: 50px;
-}
-
-.firstSection {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.firstSection .title span {
-  font-size: larger;
-  color: white;
-  font-weight: bold;
-}
-
-.firstSection .settings {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.settings .menu, .social, .general {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  color: white;
-  gap: 10px;
-}
-
-.secondSection {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
 }
 
-.secondSection .options {
-  color: white;
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  font-weight: bold;
-  font-size: larger;
+  flex-direction: column;
+  gap: 30px;
 }
 
-.secondSection .filmImage {
-  position: relative;
+.container form {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   margin-top: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 40px;
+  border-radius: 20px;
 }
 
-.filmImage .groupElement {
+form input {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: large;
+}
+
+form .btnSubmit {
+  padding: 10px;
+  border: transparent;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: large;
+  background-color: transparent;
+  border: 1px solid orange;
+}
+
+form .btnSubmit:hover {
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+}
+
+.banner {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  position: absolute;
-  top: 55%;
-  left: 5%;
-  transform: 'translate(-50%, -50%)';
 }
 
-.filmImage img {
+.bannerImg {
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+}
+
+.bannerMovieInformation {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  bottom: 10%;
+  margin-left: 10px;
+}
+
+.bannerMovieName, .bannerMovieRelease, .bannerMovieRating, .movieLang, .filmName, .filmOverview {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.result .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card .resultImg {
+  position: relative;
+  width: 600px;
+  height: 600px;
   object-fit: cover;
   border-radius: 20px;
 }
 
-.filmImage .filmName {
-  font-size: 2.5em;
-  color: white;
-  font-weight: bold;
-}
-
-.filmImage .filmPlot {
-  color: white;
-  font-size: large;
-}
-
-.filmImage .btnWatch {
-  background-color: rgb(211, 76, 13);
-  border: 1px solid rgb(211, 76, 13);
-  color: white;
-  padding: 13px 30px;
-  border-radius: 10px;
-  font-size: large;
-}
-
-.filmImage .btnPlus {
-  font-size: xx-large;
-  width: 50px;
-  border-radius: 12px;
-  background-color: rgba(128, 128, 128, 0.411);
-  height: 50px;
-  color: white;
-  border: 1px solid rgba(128, 128, 128, 0.411);
-}
-
-.btnGroup {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  align-items: center;
-}
-
-.thirdSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.thirdSection form {
-  position: relative;
+.card .groupElement {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.thirdSection form input {
-  padding-left: 2rem;
-  padding: 10px;
+.btnShow {
+  background-color: black;
   color: white;
-  background-color: transparent;
-  border: 1px solid rgba(71, 69, 69, 0.459);
+  padding: 10px 30px; 
+  border-radius: 12px;
   font-size: large;
-  border-radius: 20px;
+  cursor: pointer;
 }
 
-.thirdSection form input[type="text"]::placeholder {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 2rem;
-  transform: translateY(-50%);
-}
+@media screen and (max-width: 900px) {
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.inputGroup {
-  position: absolute;
-  top: 50%;
-  left: 0.5rem;
-  transform: translateY(-50%);
-}
+  .bannerImg {
+    width: 350px;
+    object-fit: cover;
+  }
 
-.bi-search {
-  font-size: larger;
+  .bannerMovieInformation {
+    position: absolute;
+    top: 670px;
+  }
+
+  .container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card .resultImg {
+    width: 350px;
+  }
 }

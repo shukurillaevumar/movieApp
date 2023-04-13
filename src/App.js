@@ -1,77 +1,59 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import Card from './Components/card';
+
+
 
 function App() {
   const [searchText, setSearchText] = useState("");
   const [receivedData, setReceivedData] = useState(null);
+  const [banner, setBanner] = useState("");
 
-  async function findMovie(e)  {
+  async function findMovie(e) {
     e.preventDefault();
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=7553ef4c42d4e9fa752f1280a0cc08de&query=${searchText}`
     );
     setReceivedData(res.data.results);
-  };
+  }
+
+  const findMovieForBanner = async() => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=7553ef4c42d4e9fa752f1280a0cc08de&query=home alone`
+    );
+
+    setBanner(response.data.results[0])
+  }
+
+  useEffect(() => {
+    findMovieForBanner()
+  }, [])
+
+
 
   return (
     <div className="App">
-      <div className="sections">
-        <div className="firstSection">  
-          <div className="title">
-            <span><i class="bi bi-cassette"></i> Exxmon.</span>
-          </div>
-          <div className='settings'>
-            <div className='menu'>
-              <span>Home</span>
-              <span>Community</span>
-              <span>Discovery</span>
-              <span>Coming soon</span>
-            </div>
-            <div className='social'>
-              <span>Friends</span>
-              <span>Parties</span>
-              <span>Media</span>
-            </div>
-            <div className='general'>
-              <span>Setting</span>
-              <span>Log Out</span>
-            </div>
-          </div>
-        </div>
-        <div className="secondSection">
-          <div className='options'>
-            <span>TV series</span>
-            <span>Movies</span>
-            <span>Animes</span>
-          </div>
-          <div className='filmImage'>
-              <>
-              {receivedData && <img width="700px" height="300px" src={`https://image.tmdb.org/t/p/w500${receivedData[0].poster_path}`} alt='img' />}
-              <div className='groupElement'>
-              <span className='filmName'>{receivedData && receivedData[0].original_title}</span>
-              <span className='filmPlot'>PLot</span>
-              <div className='btnGroup'>
-              <button className='btnWatch'>Watch</button>
-              <button className='btnPlus'>+</button>
-              </div>
-              </div>
-              </>
-            
-            </div>
-          </div>
-        </div>
-        <div className="thirdSection">
+        <div className="container">
           <form onSubmit={findMovie}>
-            <div className='inputGroup'>
-            <i class="bi bi-search"></i>
-            </div>
-            <input type='text' placeholder="Search" className="inputSearch" onChange={(e) => setSearchText(e.target.value)} />
+            <input required type='text' placeholder="Search" className="inputSearch" onChange={(e) => setSearchText(e.target.value)} />
             <button type='submit' className='btnSubmit'>Search</button>
           </form>
+          <div className='banner'>
+            {banner && <img className='bannerImg' alt='img' src={`https://image.tmdb.org/t/p/w500${banner.poster_path}`} />}
+            <div className='bannerMovieInformation'>
+              {banner && <span className='bannerMovieName'>The movie name: {banner.original_title}</span>}
+              {banner && <span className='bannerMovieRelease'>The movie release date: {banner.release_date}</span>}
+              {banner && <span className='bannerMovieRating'>The average vote: {banner.vote_average}</span>}
+            </div>
+          </div>
         </div>
-      </div>
+        <div className='result'>
+            {receivedData && receivedData.map((movie) => (
+              <Card poster_path={movie.poster_path} original_title={movie.original_title} overview={movie.overview} original_language={movie.original_language}/>
+            ))}
+        </div>
+    </div>
   );
 }
 
