@@ -4,6 +4,7 @@
 
 body {
   margin: 0px;
+  background-color: rgb(31, 27, 27);
 }
 
 .App {
@@ -47,6 +48,7 @@ form .btnSubmit {
   border-radius: 20px;
   padding: 10px 30px;
   font-size: large;
+  color: grey;
   background-color: transparent;
   border: 1px solid orange;
 }
@@ -130,9 +132,24 @@ form .btnSubmit:hover {
   padding: 10px 30px; 
   border-radius: 12px;
   font-size: large;
+  margin-top: 10px;
   cursor: pointer;
 }
 
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-top: 100px;
+}
+
+.footer span {
+  font-size: larger;
+  color: white;
+  padding: 30px;
+}
 @media screen and (max-width: 900px) {
   .banner {
     display: flex;
@@ -160,5 +177,9 @@ form .btnSubmit:hover {
 
   .card .resultImg {
     width: 350px;
+  }
+
+  .footer span {
+    padding: 20px;
   }
 }

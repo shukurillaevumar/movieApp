@@ -20,7 +20,7 @@ function App() {
 
   const findMovieForBanner = async() => {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=7553ef4c42d4e9fa752f1280a0cc08de&query=home alone`
+      `https://api.themoviedb.org/3/search/movie?api_key=7553ef4c42d4e9fa752f1280a0cc08de&query=Avatar the way of water`
     );
 
     setBanner(response.data.results[0])
@@ -52,6 +52,10 @@ function App() {
             {receivedData && receivedData.map((movie) => (
               <Card poster_path={movie.poster_path} original_title={movie.original_title} overview={movie.overview} original_language={movie.original_language}/>
             ))}
+        </div>
+
+        <div className='footer'>
+          <span>Made by Muhammadumar Shukurullaev</span>
         </div>
     </div>
   );
