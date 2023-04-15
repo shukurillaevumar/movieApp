@@ -13,13 +13,15 @@ function Card (props) {
 
     const toggleShowFullText = () => {
         setShowFullText(!showFullText);
-      };
+    };
     return (
         <div className='card'>
                 <img className="resultImg" src={`https://image.tmdb.org/t/p/w500${props.poster_path}`} alt='img' />
                 <div className='groupElement'>
                   <span className="movieLang">The movie original language: {props.original_language}</span>
                   <span className='filmName'>The movie name: {props.original_title}</span>
+                  {<span className='bannerMovieRelease'>The movie release date: {props.release_date}</span>}
+                  {<span className='bannerMovieRating'>The average vote: {props.vote_average}</span>}
                   <span className='filmOverview'>The movie overview: {showFullText ? props.overview : shortenText(props.overview, 50)}</span>
                 </div>
 

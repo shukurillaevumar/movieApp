@@ -100,6 +100,7 @@ form .btnSubmit:hover {
 }
 
 .result .card {
+  width: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,5 +182,9 @@ form .btnSubmit:hover {
 
   .footer span {
     padding: 20px;
+  }
+  
+  .groupElement {
+    width: 100vw;
   }
 }

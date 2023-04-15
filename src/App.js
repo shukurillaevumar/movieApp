@@ -50,7 +50,7 @@ function App() {
         </div>
         <div className='result'>
             {receivedData && receivedData.map((movie) => (
-              <Card poster_path={movie.poster_path} original_title={movie.original_title} overview={movie.overview} original_language={movie.original_language}/>
+              <Card poster_path={movie.poster_path} original_title={movie.original_title} overview={movie.overview} original_language={movie.original_language} release_date={movie.release_date} vote_average={movie.vote_average}/>
             ))}
         </div>
 
